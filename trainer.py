@@ -85,8 +85,8 @@ def train(embedding_dims=3, epochs=10):
 			running_loss.append(loss.cpu().detach().item())
 			bar.set_description("TRAINING:- "+str({"epoch": epoch+1, "loss": round(sum(running_loss)/len(running_loss), 4)}))
 			bar.refresh()
-			test_embeddings, test_labels = test(epoch, model, device, test_loader)
-			plot_images(test_embeddings, test_labels)
+			#test_embeddings, test_labels = test(epoch, model, device, test_loader)
+			#plot_images(test_embeddings, test_labels)
 		bar.close()
 	torch.save({"model_state_dict": model.state_dict(), "optimzier_state_dict": optimizer.state_dict()}, "trained_model.pth")
 
